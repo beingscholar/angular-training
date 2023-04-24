@@ -1,0 +1,44 @@
+.change-color {
+    color: red;
+}
+
+.myClass {
+    font-size: larger;
+    color: red;
+    font-style: italic;
+    border: 2px solid #000;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+table,
+th,
+td {
+    border: 2px solid;
+    border-collapse: collapse;
+    padding: 5px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: burlywood;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.even {
+    background-color: lightgray;
+    /* background-color: bisque; */
+}
+
+.show-fullname {
+    background-color: unset;
+    color: navy;
+    border: none;
+    cursor: pointer;
+    padding: 2px 12px 3px 12px;
+    text-decoration: none;
+    font-size: 16px;
+}

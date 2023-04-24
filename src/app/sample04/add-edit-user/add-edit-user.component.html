@@ -1,0 +1,83 @@
+<input
+  type="button"
+  class="show-fullname"
+  [attr.value]="showContainer ? 'Close Container' : 'Create User'"
+  (click)="toggleDisplayDiv()"
+/>
+
+<div class="container" *ngIf="showContainer">
+  <form #userForm="ngForm">
+    <label for="fname">First Name</label>
+    <input
+      type="text"
+      id="fname"
+      name="firstName"
+      placeholder="first name"
+      [(ngModel)]="userForm.value.firstName"
+    />
+
+    <label for="lname">Last Name</label>
+    <input
+      type="text"
+      id="lname"
+      name="lastName"
+      placeholder="last name"
+      [(ngModel)]="userForm.value.lastName"
+    />
+
+    <label for="gender">Gender: </label>
+    <input
+      type="radio"
+      id="male"
+      name="gender"
+      value="male"
+      [(ngModel)]="userForm.value.gender"
+    />
+    <span for="male">Male</span>
+    <input
+      type="radio"
+      id="female"
+      name="gender"
+      value="female"
+      [(ngModel)]="userForm.value.gender"
+    />
+    <span for="female">Female</span>
+    <br />
+    <label for="email">Email: </label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      placeholder="email"
+      [(ngModel)]="userForm.value.email"
+    />
+    <label for="city">City: </label>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      placeholder="city"
+      [(ngModel)]="userForm.value.city"
+    />
+
+    <label for="dob">Date of Birth: </label>
+    <input
+      type="date"
+      id="dob"
+      name="dob"
+      placeholder="Date of Birth"
+      [(ngModel)]="userForm.value.dob"
+    />
+
+    <label for="salary">Salary: </label>
+    <input
+      type="number"
+      id="salary"
+      name="salary"
+      placeholder="salary"
+      [(ngModel)]="userForm.value.salary"
+    />
+
+    <input type="submit" value="Add User" (click)="saveUser(userForm.value)" />
+  </form>
+</div>

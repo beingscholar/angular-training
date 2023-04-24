@@ -1,0 +1,102 @@
+<img [src]="imgPath" [alt]="imgTitle" />
+<div class="sample-container">
+  <app-add-edit-user
+    (saveUserEvent)="onSaveUserEvent($event)"
+    (closeUserContainer)="onCloseUserContainer($event)"
+    *ngIf="showUserButton"
+  ></app-add-edit-user>
+  
+  <input type="button" class="show-fullname" value="Reactive Button" *ngIf="shwReactive1" />
+
+  <ng-template #sampleModel let-modal>
+    <div class="model-wrapper">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">User Form</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-user-reactive-form
+          (saveUserEvent)="onSaveUserEvent($event)"
+        ></app-user-reactive-form>
+      </div>
+    </div>
+  </ng-template>
+
+  <input
+    *ngIf="showReactiveButton"
+    type="button"
+    class="show-model"
+    value="Show Reactive Model"
+    (click)="open(sampleModel)"
+  />
+
+  <app-user-count
+    [allCount]="allCount"
+    [maleCount]="getMaleCount()"
+    [femaleCount]="getFemaleCount()"
+    (selectedRadioChangedEvent)="onSelectedRadioChangedEvent($event)"
+  ></app-user-count>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sr No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Email Address</th>
+        <th>City</th>
+        <th>Date Of Birth</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr
+      *ngFor="let user of filteredUsers; even as even; index as index"
+      [class.even]="even"
+    > -->
+      <!-- Q. filter issue with even class -->
+      <tr
+        *ngFor="let user of users; even as e; index as index"
+        [class.even]="e"
+      >
+        <ng-container
+          *ngIf="selectedValue === 'all' || user.gender === selectedValue"
+        >
+          <td>{{ index + 1 }}</td>
+          <td>{{ user.firstName | title : user.gender }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.gender | titlecase }}</td>
+          <td>{{ user.email | lowercase }}</td>
+          <td>{{ user.city | uppercase }}</td>
+          <td>{{ user.dob | date : "E, MMM dd, y" }}</td>
+          <td>{{ user.salary | currency : "INR" : "symbol" : "1.2" }}</td>
+          <!-- Q. Can we pass / use custom pipes in services  -->
+          <!-- <td>{{ shwFullNameUser(user.firstName, user.lastName) }}</td> -->
+          <td>
+            <input
+              type="button"
+              (click)="showFullName(user)"
+              class="show-fullname"
+              value="Click"
+            />
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="sample-container">
+  <!-- <input type="text" [(ngModel)]="sample" />
+  <div *ngIf="sample">
+    <child [defaultText]="sample"></child>
+  </div> -->
+</div>

@@ -1,0 +1,30 @@
+<div class="user-count">
+  <span class="radioClass">Show: </span>
+
+  <input
+    type="radio"
+    name="options"
+    value="all"
+    [(ngModel)]="selectedRadio"
+    (change)="changeHandler()"
+  />
+  <span class="radioClass">All ({{ allCount }})</span>
+
+  <input
+    type="radio"
+    name="options"
+    value="male"
+    [(ngModel)]="selectedRadio"
+    (change)="changeHandler()"
+  />
+  <span class="radioClass">Male ({{ maleCount }})</span>
+
+  <input
+    type="radio"
+    name="options"
+    value="female"
+    [(ngModel)]="selectedRadio"
+    (change)="changeHandler()"
+  />
+  <span class="radioClass">Female ({{ femaleCount }})</span>
+</div>

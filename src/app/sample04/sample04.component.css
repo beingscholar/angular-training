@@ -1,0 +1,46 @@
+.sample-container {
+    border-top: 1px solid lightgray;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.user-count {
+    align-content: center;
+    padding: 20px 0 20px 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.radioClass {
+    padding-right: 25px;
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 8px;
+}
+
+.show-model {
+    background-color: rgb(126, 56, 202);
+    color: #fff;
+    border: none;
+    padding: 2px 12px 3px 12px;
+    height: 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.close {
+    background-color: unset;
+    color: #fff;
+    border: none;
+    padding: 2px 12px 3px 12px;
+    text-decoration: none;
+    font-size: 2em;
+    position: absolute;
+    right: 15px;
+}
+
+.model-wrapper {
+    background-color: #3e4970cc;
+    color: #fff;
+}

@@ -1,0 +1,18 @@
+.container {
+    width: auto;
+}
+
+input[type=submit] {
+    background-color: rgb(126, 56, 202);
+}
+
+.error {
+    border: 1.5px solid red;
+}
+
+div.error {
+    color: red;
+    border: none;
+    margin: 10px 0;
+    font-size: small;
+}

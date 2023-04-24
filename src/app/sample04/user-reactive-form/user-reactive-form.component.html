@@ -1,0 +1,159 @@
+<!-- <input
+  type="button"
+  class="show-fullname"
+  [attr.value]="
+    showContainer ? 'Close Reactive Container' : 'Create Reactive User'
+  "
+  (click)="toggleDisplayDiv()"
+/> -->
+
+
+
+<div class="container">
+  <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        class="form-control"
+        name="firstName"
+        placeholder="first name"
+        formControlName="firstName"
+        [class.error]="
+          userForm.controls['firstName'].errors &&
+          userForm.controls['firstName'].touched &&
+          userForm.controls['firstName'].dirty
+        "
+      />
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        id="lname"
+        class="form-control"
+        name="lastName"
+        placeholder="last name"
+        formControlName="lastName"
+        [class.error]="
+          userForm.controls['lastName'].errors &&
+          userForm.controls['lastName'].touched &&
+          userForm.controls['lastName'].dirty
+        "
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender: </label>
+
+      <input
+        type="radio"
+        id="male"
+        name="gender"
+        value="male"
+        formControlName="gender"
+      />
+      <span for="male">Male</span>
+      <input
+        type="radio"
+        id="female"
+        name="gender"
+        value="female"
+        formControlName="gender"
+      />
+      <span for="female">Female</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        name="email"
+        placeholder="email"
+        formControlName="email"
+        [class.error]="
+          userForm.controls['email'].errors &&
+          userForm.controls['email'].touched &&
+          userForm.controls['email'].dirty
+        "
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">City: </label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        name="city"
+        placeholder="city"
+        formControlName="city"
+        [class.error]="
+          userForm.controls['city'].errors &&
+          userForm.controls['city'].touched &&
+          userForm.controls['city'].dirty
+        "
+      />
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth: </label>
+      <input
+        type="date"
+        id="dob"
+        class="form-control"
+        name="dob"
+        placeholder="Date of Birth"
+        formControlName="dob"
+        [class.error]="
+          userForm.controls['dob'].errors &&
+          userForm.controls['dob'].touched &&
+          userForm.controls['dob'].dirty
+        "
+      />
+      <div
+        class="error"
+        *ngIf="
+          userForm.controls['dob'].errors &&
+          userForm.controls['dob'].touched &&
+          userForm.controls['dob'].dirty
+        "
+      >
+        enter the correct data of birth.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary: </label>
+      <input
+        type="text"
+        id="salary"
+        class="form-control"
+        name="salary"
+        placeholder="salary"
+        formControlName="salary"
+        [class.error]="
+          userForm.controls['salary'].errors &&
+          userForm.controls['salary'].touched &&
+          userForm.controls['salary'].dirty
+        "
+      />
+      <div
+        class="error"
+        *ngIf="
+          userForm.controls['salary'].errors &&
+          userForm.controls['salary'].touched &&
+          userForm.controls['salary'].dirty
+        "
+      >
+        {{
+          userForm.controls["salary"].errors["salaryError"] ||
+            "salary should not be less than 10000."
+        }}
+      </div>
+    </div>
+
+    <input type="submit" [disabled]="userForm.valid" value="Add User" />
+  </form>
+</div>

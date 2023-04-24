@@ -1,0 +1,59 @@
+<img [src]="imgPath" [alt]="imgTitle" />
+
+<!-- <div class="change-color">
+  <p>First Name: {{ fName }}</p>
+  <p>Last Name: {{ lName }}</p>
+</div> -->
+<!-- <app-user-detail></app-user-detail> -->
+<table>
+  <thead>
+    <th>Sr. No.</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Full Name</th>
+  </thead>
+  <tbody>
+    <!-- how to display sr no and even/odd functionality simultaneously -->
+
+    <!-- * applied only for structural directive
+    e.g. *ngFor, *ngIf, etc. -->
+
+    <tr
+      *ngFor="let item of users; index as i; even as even"
+      [class.even]="even"
+    >
+      <td [ngSwitch]="i">
+        <!-- *ngSwitchCase is also a structural directive as it changes the DOM -->
+        <span *ngSwitchCase="0">One</span>
+        <span *ngSwitchCase="1">Two</span>
+        <span *ngSwitchDefault>N/A</span>
+      </td>
+      <!-- <td>{{ i + 1 }}</td> -->
+      <td>{{ item.fName }}</td>
+      <td>{{ item.lName }}</td>
+      <td>{{ displayFullName(item) }}</td>
+
+      <!-- ngSwitch is a attribute directive, as it just changes the look and feel not the DOM -->
+    </tr>
+    <tr *ngIf="users?.length === 0">
+      <td colspan="4">no record found!</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<input type="button" disabled="{{ isDisabled }}" value="First button" />
+<input
+  type="button"
+  [disabled]="isDisabled"
+  value="Second button"
+  (click)="alertFullName()"
+/>
+<br />
+<!-- Q. How to do two way binding with user-defined funtions -->
+<input type="text" [(ngModel)]="fName" [class]="inputClass" id="textbox1" />
+<input
+  type="text"
+  [(ngModel)]="lName"
+  [class]="isApplied ? 'myClass' : ''"
+  id="textbox1"
+/>
