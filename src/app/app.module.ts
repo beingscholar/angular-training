@@ -15,6 +15,14 @@ import { UserService } from './services/user.service';
 import { AddEditUserComponent } from './sample04/add-edit-user/add-edit-user.component';
 import { UserReactiveFormComponent } from './sample04/user-reactive-form/user-reactive-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'user', component: UserComponent },
+  { path: 'user-detail', component: UserDetailComponent },
+  { path: 'sample-04', component: Sample04Component },
+  { path: 'user-count', component: UserCountComponent },
+];
 
 @NgModule({
   declarations: [
